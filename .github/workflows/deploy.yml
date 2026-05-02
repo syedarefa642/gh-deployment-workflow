@@ -1,4 +1,4 @@
-name: Deploy
+name: 🚀 Deploy Website
 
 on:
   push:
@@ -6,20 +6,26 @@ on:
       - main
 
 permissions:
-  contents: write   # 🔥 VERY IMPORTANT
+  contents: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Deploy to GitHub Pages
+      - name: 🧹 Clean old files
+        run: |
+          echo "Preparing deployment..."
+
+      - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
+          publish_branch: gh-pages
+          commit_message: "🚀 Deploying updated website"
 
     
