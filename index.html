@@ -1,171 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Refa | DevOps Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refa | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
 
-<style>
-body {
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  background: #f8f9fb;
-  color: #1a1a1a;
-}
+    body{
+      background:#0f172a;
+      color:#fff;
+      overflow-x:hidden;
+    }
 
-/* NAVBAR */
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 10%;
-  background: white;
-  border-bottom: 1px solid #eee;
-}
+    /* Animated background */
+    .bg{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-1;
+      background: linear-gradient(-45deg,#ff0080,#7928ca,#2afadf,#ff8c00);
+      background-size:400% 400%;
+      animation: gradientMove 12s ease infinite;
+      filter: blur(60px);
+      opacity:0.6;
+    }
 
-header h2 {
-  font-weight: 600;
-}
+    @keyframes gradientMove{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
 
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #555;
-}
+    header{
+      text-align:center;
+      padding:80px 20px 40px;
+    }
 
-nav a:hover {
-  color: black;
-}
+    header h1{
+      font-size:3rem;
+      font-weight:700;
+      animation: fadeDown 1s ease forwards;
+    }
 
-/* HERO */
-.hero {
-  padding: 120px 10%;
-}
+    header p{
+      margin-top:10px;
+      color:#cbd5e1;
+      animation: fadeUp 1.2s ease forwards;
+    }
 
-.hero h1 {
-  font-size: 48px;
-  font-weight: 600;
-}
+    @keyframes fadeDown{
+      from{opacity:0; transform:translateY(-30px)}
+      to{opacity:1; transform:translateY(0)}
+    }
 
-.hero p {
-  color: #666;
-  margin-top: 10px;
-}
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(30px)}
+      to{opacity:1; transform:translateY(0)}
+    }
 
-.hero .btn {
-  margin-top: 20px;
-  display: inline-block;
-  padding: 10px 18px;
-  border: 1px solid #ddd;
-  text-decoration: none;
-  color: black;
-  border-radius: 6px;
-}
+    .container{
+      max-width:1000px;
+      margin:auto;
+      padding:20px;
+    }
 
-.hero .btn:hover {
-  background: #f0f0f0;
-}
+    .card{
+      background: rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding:20px;
+      margin:20px 0;
+      border-radius:16px;
+      transition:0.4s;
+      transform: translateY(30px);
+      opacity:0;
+      animation: appear 1s forwards;
+    }
 
-/* SECTION */
-section {
-  padding: 60px 10%;
-}
+    .card:hover{
+      transform: scale(1.03);
+      border-color:#ff0080;
+    }
 
-h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-}
+    @keyframes appear{
+      to{opacity:1; transform:translateY(0)}
+    }
 
-/* CARDS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+    }
 
-.card {
-  background: white;
-  border: 1px solid #eee;
-  padding: 20px;
-  border-radius: 10px;
-  transition: 0.2s;
-}
+    .badge{
+      display:inline-block;
+      padding:5px 10px;
+      margin:5px;
+      background:linear-gradient(45deg,#ff0080,#7928ca);
+      border-radius:20px;
+      font-size:12px;
+    }
 
-.card:hover {
-  transform: translateY(-4px);
-}
+    footer{
+      text-align:center;
+      padding:40px;
+      color:#94a3b8;
+    }
 
-/* SKILLS */
-.skills span {
-  display: inline-block;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  margin: 5px;
-  border-radius: 20px;
-  font-size: 14px;
-}
+    /* Button */
+    .btn{
+      display:inline-block;
+      margin-top:15px;
+      padding:10px 18px;
+      border-radius:8px;
+      background:linear-gradient(45deg,#ff0080,#ff8c00);
+      color:#fff;
+      text-decoration:none;
+      transition:0.3s;
+    }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #888;
-}
-</style>
+    .btn:hover{
+      transform:scale(1.1);
+    }
+  </style>
 </head>
-
 <body>
 
+<div class="bg"></div>
+
 <header>
-  <h2>Refa</h2>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-  </nav>
+  <h1>Hi, I'm Refa 👋</h1>
+  <p>DevOps & Cloud Enthusiast | Linux • AWS • Docker • Kubernetes</p>
 </header>
 
-<div class="hero">
-  <h1>DevOps Engineer 🚀</h1>
-  <p>Building scalable systems with AWS, Docker & Kubernetes</p>
-  <a class="btn" href="https://github.com/syedarefa642">GitHub</a>
+<div class="container">
+
+  <div class="card">
+    <h2>🚀 About Me</h2>
+    <p>I am an IT student passionate about DevOps, automation, and cloud technologies. I love building scalable systems and deploying modern applications.</p>
+  </div>
+
+  <div class="card">
+    <h2>🛠 Skills</h2>
+    <span class="badge">Linux</span>
+    <span class="badge">AWS</span>
+    <span class="badge">GitHub Actions</span>
+    <span class="badge">Docker</span>
+    <span class="badge">Kubernetes</span>
+    <span class="badge">HTML/CSS</span>
+  </div>
+
+  <div class="card">
+    <h2>📂 Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>CI/CD Pipeline</h3>
+        <p>Automated deployment using GitHub Actions.</p>
+        <a class="btn" href="#">View</a>
+      </div>
+
+      <div class="card">
+        <h3>Docker App</h3>
+        <p>Containerized web application using Docker.</p>
+        <a class="btn" href="#">View</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📬 Contact</h2>
+    <p>Email: refa@example.com</p>
+    <p>GitHub: github.com/syedarefa642</p>
+  </div>
+
 </div>
 
-<section id="projects">
-  <h2>Projects</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>CI/CD Pipeline</h3>
-      <p>Automated deployment using GitHub Actions & Pages.</p>
-    </div>
-
-    <div class="card">
-      <h3>Kubernetes Setup</h3>
-      <p>Managed containers using Minikube and kubectl.</p>
-    </div>
-
-    <div class="card">
-      <h3>Docker Projects</h3>
-      <p>Containerized applications for scalable deployment.</p>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-
-  <div class="skills">
-    <span>Linux</span>
-    <span>Docker</span>
-    <span>Kubernetes</span>
-    <span>AWS</span>
-    <span>GitHub Actions</span>
-  </div>
-</section>
-
 <footer>
-  <p>© 2026 Refa</p>
+  Built with ❤️ by Refa
 </footer>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = "appear 1s forwards";
+      }
+    });
+  });
+
+  cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
